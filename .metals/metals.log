@@ -1,0 +1,296 @@
+INFO  started: Metals version 0.8.1 in workspace '/Users/yurique/git/yurique/scala-js-laminar-starter'
+INFO  time: initialize in 0.26s
+WARN  no build target for: /Users/yurique/git/yurique/scala-js-laminar-starter/src/main/g8/src/main/scala/Stub.scala
+INFO  shutting down Metals
+INFO  started: Metals version 0.8.1 in workspace '/Users/yurique/git/yurique/scala-js-laminar-starter.g8'
+INFO  time: initialize in 0.43s
+Mar 25, 2020 5:57:40 PM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTraceNotification
+INFO  shutting down Metals
+INFO  started: Metals version 0.8.3 in workspace '/Users/yurique/git/yurique/scala-js-laminar-starter.g8'
+INFO  time: initialize in 0.24s
+INFO  skipping build import with status 'Requested'
+Mar 25, 2020 5:59:07 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint fallbackResponseError
+SEVERE: Internal error: java.lang.StringIndexOutOfBoundsException: String index out of range: -1
+java.util.concurrent.CompletionException: java.lang.StringIndexOutOfBoundsException: String index out of range: -1
+	at java.util.concurrent.CompletableFuture.encodeThrowable(CompletableFuture.java:292)
+	at java.util.concurrent.CompletableFuture.completeThrowable(CompletableFuture.java:308)
+	at java.util.concurrent.CompletableFuture.uniAccept(CompletableFuture.java:647)
+	at java.util.concurrent.CompletableFuture$UniAccept.tryFire(CompletableFuture.java:632)
+	at java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:474)
+	at java.util.concurrent.CompletableFuture.completeExceptionally(CompletableFuture.java:1977)
+	at scala.meta.internal.metals.CancelTokens$.$anonfun$future$1(CancelTokens.scala:38)
+	at scala.meta.internal.metals.CancelTokens$.$anonfun$future$1$adapted(CancelTokens.scala:36)
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:64)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.lang.StringIndexOutOfBoundsException: String index out of range: -1
+	at java.lang.String.charAt(String.java:658)
+	at scala.collection.immutable.StringOps$.apply$extension(StringOps.scala:41)
+	at scala.meta.internal.metals.MetalsEnrichments$XtensionString.lastIndexBetween(MetalsEnrichments.scala:408)
+	at scala.meta.internal.metals.MultilineStringFormattingProvider.pipeInScope(MultilineStringFormattingProvider.scala:93)
+	at scala.meta.internal.metals.MultilineStringFormattingProvider.$anonfun$withToken$1(MultilineStringFormattingProvider.scala:139)
+	at scala.concurrent.Future$.$anonfun$apply$1(Future.scala:659)
+	at scala.util.Success.$anonfun$map$1(Try.scala:255)
+	at scala.util.Success.map(Try.scala:213)
+	at scala.concurrent.Future.$anonfun$map$1(Future.scala:292)
+	at scala.concurrent.impl.Promise.liftedTree1$1(Promise.scala:33)
+	at scala.concurrent.impl.Promise.$anonfun$transform$1(Promise.scala:33)
+	... 4 more
+
+Mar 25, 2020 5:59:12 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 26
+Mar 25, 2020 5:59:12 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 28
+Mar 25, 2020 5:59:12 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint fallbackResponseError
+SEVERE: Internal error: java.lang.StringIndexOutOfBoundsException: String index out of range: -1
+java.util.concurrent.CompletionException: java.lang.StringIndexOutOfBoundsException: String index out of range: -1
+	at java.util.concurrent.CompletableFuture.encodeThrowable(CompletableFuture.java:292)
+	at java.util.concurrent.CompletableFuture.completeThrowable(CompletableFuture.java:308)
+	at java.util.concurrent.CompletableFuture.uniAccept(CompletableFuture.java:647)
+	at java.util.concurrent.CompletableFuture$UniAccept.tryFire(CompletableFuture.java:632)
+	at java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:474)
+	at java.util.concurrent.CompletableFuture.completeExceptionally(CompletableFuture.java:1977)
+	at scala.meta.internal.metals.CancelTokens$.$anonfun$future$1(CancelTokens.scala:38)
+	at scala.meta.internal.metals.CancelTokens$.$anonfun$future$1$adapted(CancelTokens.scala:36)
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:64)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.lang.StringIndexOutOfBoundsException: String index out of range: -1
+	at java.lang.String.charAt(String.java:658)
+	at scala.collection.immutable.StringOps$.apply$extension(StringOps.scala:41)
+	at scala.meta.internal.metals.MetalsEnrichments$XtensionString.lastIndexBetween(MetalsEnrichments.scala:408)
+	at scala.meta.internal.metals.MultilineStringFormattingProvider.pipeInScope(MultilineStringFormattingProvider.scala:93)
+	at scala.meta.internal.metals.MultilineStringFormattingProvider.$anonfun$withToken$1(MultilineStringFormattingProvider.scala:139)
+	at scala.concurrent.Future$.$anonfun$apply$1(Future.scala:659)
+	at scala.util.Success.$anonfun$map$1(Try.scala:255)
+	at scala.util.Success.map(Try.scala:213)
+	at scala.concurrent.Future.$anonfun$map$1(Future.scala:292)
+	at scala.concurrent.impl.Promise.liftedTree1$1(Promise.scala:33)
+	at scala.concurrent.impl.Promise.$anonfun$transform$1(Promise.scala:33)
+	... 4 more
+
+Mar 25, 2020 5:59:15 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 40
+Mar 25, 2020 5:59:16 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 42
+Mar 25, 2020 5:59:22 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 62
+Mar 25, 2020 6:01:02 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 95
+Mar 25, 2020 6:01:05 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 96
+Mar 25, 2020 6:01:05 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint fallbackResponseError
+SEVERE: Internal error: java.lang.StringIndexOutOfBoundsException: String index out of range: -1
+java.util.concurrent.CompletionException: java.lang.StringIndexOutOfBoundsException: String index out of range: -1
+	at java.util.concurrent.CompletableFuture.encodeThrowable(CompletableFuture.java:292)
+	at java.util.concurrent.CompletableFuture.completeThrowable(CompletableFuture.java:308)
+	at java.util.concurrent.CompletableFuture.uniAccept(CompletableFuture.java:647)
+	at java.util.concurrent.CompletableFuture$UniAccept.tryFire(CompletableFuture.java:632)
+	at java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:474)
+	at java.util.concurrent.CompletableFuture.completeExceptionally(CompletableFuture.java:1977)
+	at scala.meta.internal.metals.CancelTokens$.$anonfun$future$1(CancelTokens.scala:38)
+	at scala.meta.internal.metals.CancelTokens$.$anonfun$future$1$adapted(CancelTokens.scala:36)
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:64)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.lang.StringIndexOutOfBoundsException: String index out of range: -1
+	at java.lang.String.charAt(String.java:658)
+	at scala.collection.immutable.StringOps$.apply$extension(StringOps.scala:41)
+	at scala.meta.internal.metals.MetalsEnrichments$XtensionString.lastIndexBetween(MetalsEnrichments.scala:408)
+	at scala.meta.internal.metals.MultilineStringFormattingProvider.pipeInScope(MultilineStringFormattingProvider.scala:93)
+	at scala.meta.internal.metals.MultilineStringFormattingProvider.$anonfun$withToken$1(MultilineStringFormattingProvider.scala:139)
+	at scala.concurrent.Future$.$anonfun$apply$1(Future.scala:659)
+	at scala.util.Success.$anonfun$map$1(Try.scala:255)
+	at scala.util.Success.map(Try.scala:213)
+	at scala.concurrent.Future.$anonfun$map$1(Future.scala:292)
+	at scala.concurrent.impl.Promise.liftedTree1$1(Promise.scala:33)
+	at scala.concurrent.impl.Promise.$anonfun$transform$1(Promise.scala:33)
+	... 4 more
+
+Mar 25, 2020 6:01:05 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 97
+WARN  no build target for: /Users/yurique/git/yurique/scala-js-laminar-starter.g8/src/main/g8/project/Settings.scala
+Mar 25, 2020 6:01:49 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint fallbackResponseError
+SEVERE: Internal error: java.lang.StringIndexOutOfBoundsException: String index out of range: -1
+java.util.concurrent.CompletionException: java.lang.StringIndexOutOfBoundsException: String index out of range: -1
+	at java.util.concurrent.CompletableFuture.encodeThrowable(CompletableFuture.java:292)
+	at java.util.concurrent.CompletableFuture.completeThrowable(CompletableFuture.java:308)
+	at java.util.concurrent.CompletableFuture.uniAccept(CompletableFuture.java:647)
+	at java.util.concurrent.CompletableFuture$UniAccept.tryFire(CompletableFuture.java:632)
+	at java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:474)
+	at java.util.concurrent.CompletableFuture.completeExceptionally(CompletableFuture.java:1977)
+	at scala.meta.internal.metals.CancelTokens$.$anonfun$future$1(CancelTokens.scala:38)
+	at scala.meta.internal.metals.CancelTokens$.$anonfun$future$1$adapted(CancelTokens.scala:36)
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:64)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.lang.StringIndexOutOfBoundsException: String index out of range: -1
+	at java.lang.String.charAt(String.java:658)
+	at scala.collection.immutable.StringOps$.apply$extension(StringOps.scala:41)
+	at scala.meta.internal.metals.MetalsEnrichments$XtensionString.lastIndexBetween(MetalsEnrichments.scala:408)
+	at scala.meta.internal.metals.MultilineStringFormattingProvider.pipeInScope(MultilineStringFormattingProvider.scala:93)
+	at scala.meta.internal.metals.MultilineStringFormattingProvider.$anonfun$withToken$1(MultilineStringFormattingProvider.scala:139)
+	at scala.concurrent.Future$.$anonfun$apply$1(Future.scala:659)
+	at scala.util.Success.$anonfun$map$1(Try.scala:255)
+	at scala.util.Success.map(Try.scala:213)
+	at scala.concurrent.Future.$anonfun$map$1(Future.scala:292)
+	at scala.concurrent.impl.Promise.liftedTree1$1(Promise.scala:33)
+	at scala.concurrent.impl.Promise.$anonfun$transform$1(Promise.scala:33)
+	... 4 more
+
+WARN  no build target for: /Users/yurique/git/yurique/scala-js-laminar-starter.g8/src/main/g8/project/Settings.scala
+WARN  no build target for: /Users/yurique/git/yurique/scala-js-laminar-starter.g8/src/main/g8/project/Settings.scala
+WARN  no build target for: /Users/yurique/git/yurique/scala-js-laminar-starter.g8/src/main/g8/project/Settings.scala
+INFO  no build target: using presentation compiler with only scala-library
+WARN  code navigation does not work for the file '/Users/yurique/git/yurique/scala-js-laminar-starter.g8/src/main/g8/project/Settings.scala' because it doesn't belong to a build target.
+WARN  code navigation does not work for the file '/Users/yurique/git/yurique/scala-js-laminar-starter.g8/src/main/g8/project/Settings.scala' because it doesn't belong to a build target.
+WARN  no build target for: /Users/yurique/git/yurique/scala-js-laminar-starter.g8/src/main/g8/project/Settings.scala
+WARN  no build target for: /Users/yurique/git/yurique/scala-js-laminar-starter.g8/src/main/g8/project/Settings.scala
+WARN  no build target for: /Users/yurique/git/yurique/scala-js-laminar-starter.g8/src/main/g8/project/Settings.scala
+WARN  no build target for: /Users/yurique/git/yurique/scala-js-laminar-starter.g8/src/main/g8/project/Settings.scala
+WARN  no build target for: /Users/yurique/git/yurique/scala-js-laminar-starter.g8/src/main/g8/project/Settings.scala
+WARN  no build target for: /Users/yurique/git/yurique/scala-js-laminar-starter.g8/src/main/g8/project/Settings.scala
+WARN  no build target for: /Users/yurique/git/yurique/scala-js-laminar-starter.g8/src/main/g8/project/Settings.scala
+WARN  no build target for: /Users/yurique/git/yurique/scala-js-laminar-starter.g8/src/main/g8/project/Settings.scala
+WARN  no build target for: /Users/yurique/git/yurique/scala-js-laminar-starter.g8/src/main/g8/project/Settings.scala
+WARN  no build target for: /Users/yurique/git/yurique/scala-js-laminar-starter.g8/src/main/g8/project/Settings.scala
+WARN  no build target for: /Users/yurique/git/yurique/scala-js-laminar-starter.g8/src/main/g8/project/Settings.scala
+WARN  no build target for: /Users/yurique/git/yurique/scala-js-laminar-starter.g8/src/main/g8/project/Settings.scala
+WARN  no build target for: /Users/yurique/git/yurique/scala-js-laminar-starter.g8/src/main/g8/project/Settings.scala
+WARN  no build target for: /Users/yurique/git/yurique/scala-js-laminar-starter.g8/src/main/g8/project/Settings.scala
+WARN  no build target for: /Users/yurique/git/yurique/scala-js-laminar-starter.g8/src/main/g8/project/Settings.scala
+WARN  no build target for: /Users/yurique/git/yurique/scala-js-laminar-starter.g8/src/main/g8/project/Settings.scala
+WARN  no build target for: /Users/yurique/git/yurique/scala-js-laminar-starter.g8/src/main/g8/project/Settings.scala
+WARN  no build target for: /Users/yurique/git/yurique/scala-js-laminar-starter.g8/src/main/g8/project/Settings.scala
+WARN  no build target for: /Users/yurique/git/yurique/scala-js-laminar-starter.g8/src/main/g8/project/Settings.scala
+WARN  no build target for: /Users/yurique/git/yurique/scala-js-laminar-starter.g8/src/main/g8/project/Settings.scala
+WARN  no build target for: /Users/yurique/git/yurique/scala-js-laminar-starter.g8/src/main/g8/project/Settings.scala
+WARN  no build target for: /Users/yurique/git/yurique/scala-js-laminar-starter.g8/src/main/g8/project/Settings.scala
+WARN  no build target for: /Users/yurique/git/yurique/scala-js-laminar-starter.g8/src/main/g8/project/Settings.scala
+WARN  no build target for: /Users/yurique/git/yurique/scala-js-laminar-starter.g8/src/main/g8/project/Settings.scala
+WARN  no build target for: /Users/yurique/git/yurique/scala-js-laminar-starter.g8/src/main/g8/project/Settings.scala
+WARN  no build target for: /Users/yurique/git/yurique/scala-js-laminar-starter.g8/src/main/g8/project/Settings.scala
+WARN  no build target for: /Users/yurique/git/yurique/scala-js-laminar-starter.g8/src/main/g8/project/Settings.scala
+WARN  no build target for: /Users/yurique/git/yurique/scala-js-laminar-starter.g8/src/main/g8/project/Settings.scala
+WARN  no build target for: /Users/yurique/git/yurique/scala-js-laminar-starter.g8/src/main/g8/project/Settings.scala
+WARN  no build target for: /Users/yurique/git/yurique/scala-js-laminar-starter.g8/src/main/g8/project/Settings.scala
+WARN  no build target for: /Users/yurique/git/yurique/scala-js-laminar-starter.g8/src/main/g8/project/Settings.scala
+WARN  no build target for: /Users/yurique/git/yurique/scala-js-laminar-starter.g8/src/main/g8/project/Settings.scala
+WARN  no build target for: /Users/yurique/git/yurique/scala-js-laminar-starter.g8/src/main/g8/project/Settings.scala
+WARN  no build target for: /Users/yurique/git/yurique/scala-js-laminar-starter.g8/src/main/g8/project/Settings.scala
+WARN  no build target for: /Users/yurique/git/yurique/scala-js-laminar-starter.g8/src/main/g8/project/Settings.scala
+WARN  no build target for: /Users/yurique/git/yurique/scala-js-laminar-starter.g8/src/main/g8/project/Settings.scala
+WARN  no build target for: /Users/yurique/git/yurique/scala-js-laminar-starter.g8/src/main/g8/project/Settings.scala
+WARN  no build target for: /Users/yurique/git/yurique/scala-js-laminar-starter.g8/src/main/g8/project/Settings.scala
+WARN  no build target for: /Users/yurique/git/yurique/scala-js-laminar-starter.g8/src/main/g8/project/Settings.scala
+WARN  no build target for: /Users/yurique/git/yurique/scala-js-laminar-starter.g8/src/main/g8/project/Settings.scala
+WARN  no build target for: /Users/yurique/git/yurique/scala-js-laminar-starter.g8/src/main/g8/project/Settings.scala
+WARN  no build target for: /Users/yurique/git/yurique/scala-js-laminar-starter.g8/src/main/g8/project/Settings.scala
+WARN  no build target for: /Users/yurique/git/yurique/scala-js-laminar-starter.g8/src/main/g8/project/Settings.scala
+WARN  no build target for: /Users/yurique/git/yurique/scala-js-laminar-starter.g8/src/main/g8/project/Settings.scala
+WARN  no build target for: /Users/yurique/git/yurique/scala-js-laminar-starter.g8/src/main/g8/project/Settings.scala
+WARN  no build target for: /Users/yurique/git/yurique/scala-js-laminar-starter.g8/src/main/g8/project/Settings.scala
+WARN  no build target for: /Users/yurique/git/yurique/scala-js-laminar-starter.g8/src/main/g8/project/Settings.scala
+WARN  no build target for: /Users/yurique/git/yurique/scala-js-laminar-starter.g8/src/main/g8/project/Settings.scala
+WARN  no build target for: /Users/yurique/git/yurique/scala-js-laminar-starter.g8/src/main/g8/project/Settings.scala
+WARN  no build target for: /Users/yurique/git/yurique/scala-js-laminar-starter.g8/src/main/g8/project/Settings.scala
+WARN  no build target for: /Users/yurique/git/yurique/scala-js-laminar-starter.g8/src/main/g8/project/Settings.scala
+WARN  no build target for: /Users/yurique/git/yurique/scala-js-laminar-starter.g8/src/main/g8/project/Settings.scala
+WARN  no build target for: /Users/yurique/git/yurique/scala-js-laminar-starter.g8/src/main/g8/project/Settings.scala
+WARN  no build target for: /Users/yurique/git/yurique/scala-js-laminar-starter.g8/src/main/g8/project/Settings.scala
+WARN  no build target for: /Users/yurique/git/yurique/scala-js-laminar-starter.g8/src/main/g8/project/Settings.scala
+WARN  no build target for: /Users/yurique/git/yurique/scala-js-laminar-starter.g8/src/main/g8/project/Settings.scala
+WARN  no build target for: /Users/yurique/git/yurique/scala-js-laminar-starter.g8/src/main/g8/project/Settings.scala
+WARN  no build target for: /Users/yurique/git/yurique/scala-js-laminar-starter.g8/src/main/g8/project/Settings.scala
+WARN  no build target for: /Users/yurique/git/yurique/scala-js-laminar-starter.g8/src/main/g8/project/Settings.scala
+WARN  no build target for: /Users/yurique/git/yurique/scala-js-laminar-starter.g8/src/main/g8/project/Settings.scala
+WARN  no build target for: /Users/yurique/git/yurique/scala-js-laminar-starter.g8/src/main/g8/project/Settings.scala
+WARN  no build target for: /Users/yurique/git/yurique/scala-js-laminar-starter.g8/src/main/g8/project/Settings.scala
+WARN  no build target for: /Users/yurique/git/yurique/scala-js-laminar-starter.g8/src/main/g8/project/Settings.scala
+WARN  no build target for: /Users/yurique/git/yurique/scala-js-laminar-starter.g8/src/main/g8/project/Settings.scala
+WARN  no build target for: /Users/yurique/git/yurique/scala-js-laminar-starter.g8/src/main/g8/project/Settings.scala
+WARN  no build target for: /Users/yurique/git/yurique/scala-js-laminar-starter.g8/src/main/g8/project/Settings.scala
+WARN  no build target for: /Users/yurique/git/yurique/scala-js-laminar-starter.g8/src/main/g8/project/Settings.scala
+WARN  no build target for: /Users/yurique/git/yurique/scala-js-laminar-starter.g8/src/main/g8/project/Settings.scala
+Mar 25, 2020 6:07:41 PM scala.meta.internal.pc.CompletionProvider expected$1
+WARNING: String index out of range: -9
+WARN  no build target for: /Users/yurique/git/yurique/scala-js-laminar-starter.g8/src/main/g8/project/Settings.scala
+WARN  no build target for: /Users/yurique/git/yurique/scala-js-laminar-starter.g8/src/main/g8/project/Settings.scala
+WARN  no build target for: /Users/yurique/git/yurique/scala-js-laminar-starter.g8/src/main/g8/project/Settings.scala
+WARN  no build target for: /Users/yurique/git/yurique/scala-js-laminar-starter.g8/src/main/g8/project/Settings.scala
+WARN  no build target for: /Users/yurique/git/yurique/scala-js-laminar-starter.g8/src/main/g8/project/Settings.scala
+WARN  no build target for: /Users/yurique/git/yurique/scala-js-laminar-starter.g8/src/main/g8/project/Settings.scala
+WARN  no build target for: /Users/yurique/git/yurique/scala-js-laminar-starter.g8/src/main/g8/project/Settings.scala
+WARN  no build target for: /Users/yurique/git/yurique/scala-js-laminar-starter.g8/src/main/g8/project/Settings.scala
+WARN  no build target for: /Users/yurique/git/yurique/scala-js-laminar-starter.g8/src/main/g8/project/Settings.scala
+WARN  no build target for: /Users/yurique/git/yurique/scala-js-laminar-starter.g8/src/main/g8/project/Settings.scala
+WARN  no build target for: /Users/yurique/git/yurique/scala-js-laminar-starter.g8/src/main/g8/project/Settings.scala
+WARN  no build target for: /Users/yurique/git/yurique/scala-js-laminar-starter.g8/src/main/g8/project/Settings.scala
+WARN  no build target for: /Users/yurique/git/yurique/scala-js-laminar-starter.g8/src/main/g8/project/Settings.scala
+WARN  no build target for: /Users/yurique/git/yurique/scala-js-laminar-starter.g8/src/main/g8/project/Settings.scala
+WARN  no build target for: /Users/yurique/git/yurique/scala-js-laminar-starter.g8/src/main/g8/project/Settings.scala
+WARN  no build target for: /Users/yurique/git/yurique/scala-js-laminar-starter.g8/src/main/g8/project/Settings.scala
+WARN  no build target for: /Users/yurique/git/yurique/scala-js-laminar-starter.g8/src/main/g8/project/Settings.scala
+WARN  no build target for: /Users/yurique/git/yurique/scala-js-laminar-starter.g8/src/main/g8/project/Settings.scala
+WARN  no build target for: /Users/yurique/git/yurique/scala-js-laminar-starter.g8/src/main/g8/project/Settings.scala
+WARN  no build target for: /Users/yurique/git/yurique/scala-js-laminar-starter.g8/src/main/g8/project/Settings.scala
+WARN  no build target for: /Users/yurique/git/yurique/scala-js-laminar-starter.g8/src/main/g8/project/Settings.scala
+WARN  no build target for: /Users/yurique/git/yurique/scala-js-laminar-starter.g8/src/main/g8/project/Settings.scala
+WARN  no build target for: /Users/yurique/git/yurique/scala-js-laminar-starter.g8/src/main/g8/project/Settings.scala
+WARN  no build target for: /Users/yurique/git/yurique/scala-js-laminar-starter.g8/src/main/g8/project/Settings.scala
+WARN  no build target for: /Users/yurique/git/yurique/scala-js-laminar-starter.g8/src/main/g8/project/Settings.scala
+WARN  no build target for: /Users/yurique/git/yurique/scala-js-laminar-starter.g8/src/main/g8/project/Settings.scala
+WARN  no build target for: /Users/yurique/git/yurique/scala-js-laminar-starter.g8/src/main/g8/project/Settings.scala
+WARN  no build target for: /Users/yurique/git/yurique/scala-js-laminar-starter.g8/src/main/g8/project/Settings.scala
+WARN  no build target for: /Users/yurique/git/yurique/scala-js-laminar-starter.g8/src/main/g8/project/Settings.scala
+WARN  no build target for: /Users/yurique/git/yurique/scala-js-laminar-starter.g8/src/main/g8/project/Settings.scala
+WARN  no build target for: /Users/yurique/git/yurique/scala-js-laminar-starter.g8/src/main/g8/project/Settings.scala
+WARN  no build target for: /Users/yurique/git/yurique/scala-js-laminar-starter.g8/src/main/g8/project/Settings.scala
+WARN  no build target for: /Users/yurique/git/yurique/scala-js-laminar-starter.g8/src/main/g8/project/Settings.scala
+WARN  no build target for: /Users/yurique/git/yurique/scala-js-laminar-starter.g8/src/main/g8/project/Settings.scala
+WARN  no build target for: /Users/yurique/git/yurique/scala-js-laminar-starter.g8/src/main/g8/project/Settings.scala
+WARN  no build target for: /Users/yurique/git/yurique/scala-js-laminar-starter.g8/src/main/g8/project/Settings.scala
+WARN  no build target for: /Users/yurique/git/yurique/scala-js-laminar-starter.g8/src/main/g8/project/Settings.scala
+WARN  no build target for: /Users/yurique/git/yurique/scala-js-laminar-starter.g8/src/main/g8/project/Settings.scala
+WARN  no build target for: /Users/yurique/git/yurique/scala-js-laminar-starter.g8/src/main/g8/project/Settings.scala
+WARN  no build target for: /Users/yurique/git/yurique/scala-js-laminar-starter.g8/src/main/g8/project/Settings.scala
+WARN  no build target for: /Users/yurique/git/yurique/scala-js-laminar-starter.g8/src/main/g8/project/Settings.scala
+WARN  no build target for: /Users/yurique/git/yurique/scala-js-laminar-starter.g8/src/main/g8/project/Settings.scala
+WARN  no build target for: /Users/yurique/git/yurique/scala-js-laminar-starter.g8/src/main/g8/project/Settings.scala
+WARN  no build target for: /Users/yurique/git/yurique/scala-js-laminar-starter.g8/src/main/g8/project/Settings.scala
+WARN  no build target for: /Users/yurique/git/yurique/scala-js-laminar-starter.g8/src/main/g8/project/Settings.scala
+WARN  no build target for: /Users/yurique/git/yurique/scala-js-laminar-starter.g8/src/main/g8/project/Settings.scala
+WARN  no build target for: /Users/yurique/git/yurique/scala-js-laminar-starter.g8/src/main/g8/project/Settings.scala
+WARN  no build target for: /Users/yurique/git/yurique/scala-js-laminar-starter.g8/src/main/g8/project/Settings.scala
+WARN  no build target for: /Users/yurique/git/yurique/scala-js-laminar-starter.g8/src/main/g8/project/Settings.scala
+WARN  no build target for: /Users/yurique/git/yurique/scala-js-laminar-starter.g8/src/main/g8/project/Settings.scala
+WARN  no build target for: /Users/yurique/git/yurique/scala-js-laminar-starter.g8/src/main/g8/project/Settings.scala
+WARN  no build target for: /Users/yurique/git/yurique/scala-js-laminar-starter.g8/src/main/g8/project/Settings.scala
+WARN  no build target for: /Users/yurique/git/yurique/scala-js-laminar-starter.g8/src/main/g8/project/Settings.scala
+WARN  no build target for: /Users/yurique/git/yurique/scala-js-laminar-starter.g8/src/main/g8/project/Settings.scala
+WARN  code navigation does not work for the file '/Users/yurique/git/yurique/scala-js-laminar-starter.g8/src/main/g8/project/Settings.scala' because it doesn't belong to a build target.
+WARN  code navigation does not work for the file '/Users/yurique/git/yurique/scala-js-laminar-starter.g8/src/main/g8/project/Settings.scala' because it doesn't belong to a build target.
+Mar 25, 2020 6:55:21 PM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTraceNotification
+WARN  no build target for: /Users/yurique/git/yurique/scala-js-laminar-starter.g8/src/main/g8/project/Settings.scala
+WARN  no build target for: /Users/yurique/git/yurique/scala-js-laminar-starter.g8/src/main/g8/project/Settings.scala
+WARN  no build target for: /Users/yurique/git/yurique/scala-js-laminar-starter.g8/src/main/g8/project/Settings.scala
+WARN  no build target for: /Users/yurique/git/yurique/scala-js-laminar-starter.g8/src/main/g8/project/Settings.scala
+WARN  no build target for: /Users/yurique/git/yurique/scala-js-laminar-starter.g8/src/main/g8/project/Settings.scala
+WARN  no build target for: /Users/yurique/git/yurique/scala-js-laminar-starter.g8/src/main/g8/project/Settings.scala
+WARN  no build target for: /Users/yurique/git/yurique/scala-js-laminar-starter.g8/src/main/g8/project/Settings.scala
+WARN  no build target for: /Users/yurique/git/yurique/scala-js-laminar-starter.g8/src/main/g8/project/Settings.scala
+WARN  code navigation does not work for the file '/Users/yurique/git/yurique/scala-js-laminar-starter.g8/src/main/g8/project/Settings.scala' because it doesn't belong to a build target.
+WARN  code navigation does not work for the file '/Users/yurique/git/yurique/scala-js-laminar-starter.g8/src/main/g8/project/Settings.scala' because it doesn't belong to a build target.
+WARN  code navigation does not work for the file '/Users/yurique/git/yurique/scala-js-laminar-starter.g8/src/main/g8/project/Settings.scala' because it doesn't belong to a build target.
+WARN  code navigation does not work for the file '/Users/yurique/git/yurique/scala-js-laminar-starter.g8/src/main/g8/project/Settings.scala' because it doesn't belong to a build target.
+WARN  code navigation does not work for the file '/Users/yurique/git/yurique/scala-js-laminar-starter.g8/src/main/g8/project/Settings.scala' because it doesn't belong to a build target.
+WARN  code navigation does not work for the file '/Users/yurique/git/yurique/scala-js-laminar-starter.g8/src/main/g8/project/Settings.scala' because it doesn't belong to a build target.
+WARN  code navigation does not work for the file '/Users/yurique/git/yurique/scala-js-laminar-starter.g8/src/main/g8/project/Settings.scala' because it doesn't belong to a build target.
+WARN  code navigation does not work for the file '/Users/yurique/git/yurique/scala-js-laminar-starter.g8/src/main/g8/project/Settings.scala' because it doesn't belong to a build target.
+WARN  no build target for: /Users/yurique/git/yurique/scala-js-laminar-starter.g8/src/main/g8/project/Settings.scala

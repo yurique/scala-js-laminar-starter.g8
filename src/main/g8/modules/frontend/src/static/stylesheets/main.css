@@ -1,0 +1,11 @@
+/*noinspection CssUnknownTarget*/
+@import "tailwindcss/base";
+
+/*noinspection CssUnknownTarget*/
+@import "tailwindcss/components";
+@import "./components.css";
+
+/*noinspection CssUnknownTarget*/
+@import "tailwindcss/utilities";
+@import "./utilities.css";
+@import "./custom-styles.css";

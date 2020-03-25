@@ -1,0 +1,7 @@
+dist/
+node_modules/
+project/project/
+target/
+.idea
+.js
+.jvm
