@@ -32,8 +32,6 @@ const devServer = {
 };
 
 function common(variables, mode) {
-  console.log('__dir', __dirname);
-
   const postcssOptions = {
     config: {
       path: path.resolve(
@@ -44,7 +42,6 @@ function common(variables, mode) {
       )
     }
   };
-  console.log('postcssOptions', JSON.stringify(postcssOptions));
 
   return {
     mode: mode,
