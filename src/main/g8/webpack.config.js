@@ -1,7 +1,5 @@
 const path = require('path');
 const _ = require('lodash');
-const merge = require('merge');
-const lodash = require('lodash');
 
 const ExtractCssChunks = require('extract-css-chunks-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -221,12 +219,12 @@ function customizer(objValue, srcValue) {
 let config = {};
 switch (process.env.npm_lifecycle_event) {
   case 'build:prod':
-    config = lodash.mergeWith({}, common(require('./variables.prod.js'), 'production'), prod, customizer);
+    config = _.mergeWith({}, common(require('./variables.prod.js'), 'production'), prod, customizer);
     break;
 
   default:
     console.log('using dev config');
-    config = lodash.mergeWith({}, common(require('./variables.dev.js'), 'development'), dev, customizer);
+    config = _.mergeWith({}, common(require('./variables.dev.js'), 'development'), dev, customizer);
     break;
 }
 
