@@ -6,6 +6,8 @@ const lodash = require('lodash');
 const ExtractCssChunks = require('extract-css-chunks-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const PurgeCSSLaminarPlugin = require('purgecss-laminar-webpack-plugin').default;
+
 const {
   CleanWebpackPlugin
 } = require('clean-webpack-plugin');
@@ -195,6 +197,17 @@ const prod = {
   ],
   plugins: [
     new CleanWebpackPlugin(),
+    new PurgeCSSLaminarPlugin(
+      // {
+      //   stringFilters: {
+      //     minLength: 2,
+      //     maxLength: 30,
+      //     skipAllUpperCase: true,
+      //     onlyAllLowerCase: true,
+      //   },
+      //   debug: false
+      // }
+    )
   ]
 };
 
