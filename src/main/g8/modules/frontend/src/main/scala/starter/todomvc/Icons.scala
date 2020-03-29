@@ -16,7 +16,7 @@ object Icons {
     separator = ' '
   )
 
-  val delete: ReactiveSvgElement[SVG] =
+  def delete: ReactiveSvgElement[SVG] =
     svg(
       svgCls := "fill-current",
       viewBox := "0 0 448 512",
