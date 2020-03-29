@@ -11,12 +11,7 @@ import org.scalajs.dom.svg.SVG
 
 object Icons {
 
-  private lazy val svgCls: SvgCompositeAttr[SvgAttr[String]] = new SvgCompositeAttr(
-    new SvgAttr("class", StringAsIsCodec, namespace = None),
-    separator = ' '
-  )
-
-  val delete: ReactiveSvgElement[SVG] =
+  def delete: ReactiveSvgElement[SVG] =
     svg(
       svgCls := "fill-current",
       viewBox := "0 0 448 512",
