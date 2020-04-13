@@ -5,19 +5,20 @@ object Settings {
 
   object versions {
     val scala = "2.13.1"
-    val laminar = "0.8.0"
+    val laminar = "0.9.0"
     val `url-dsl` = "0.2.0"
     val waypoint = "0.1.0"
     val akka = "2.6.4"
     val `akka-http` = "10.1.11"
     val `akka-http-json` = "1.31.0"
     val circe = "0.13.0"
-    val `circe-derivation` = "0.13.0-M3"
+    val `circe-derivation` = "0.13.0-M4"
     val `typesafe-config` = "1.4.0"
     val pureconfig = "0.12.3"
     val scribe = "2.7.12"
     val newtype = "0.4.3"
     val uTest = "0.6.6"
+    val `dom-test-utils` = "0.12.0"
   }
 
   val scalacOptions = Seq(
@@ -118,6 +119,12 @@ object Settings {
       )
     }
 
+    val `dom-test-utils`: Def.Initialize[Seq[ModuleID]] = Def.setting {
+      Seq(
+        "com.raquo" %%% "domtestutils" % versions.`dom-test-utils` % Test
+      )
+    }
+
   }
 
   val sharedDependencies: Def.Initialize[Seq[ModuleID]] = Def.setting {
@@ -142,7 +149,8 @@ object Settings {
     Seq.concat(
       libs.laminar.value,
       libs.`url-dsl`.value,
-      libs.waypoint.value
+      libs.waypoint.value,
+      libs.`dom-test-utils`.value,
     )
   }
 

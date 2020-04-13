@@ -213,18 +213,13 @@ function customizer(objValue, srcValue) {
   }
 }
 
-let config = {};
-switch (process.env.npm_lifecycle_event) {
-  case 'build:prod':
-    config = _.mergeWith({}, common(require('./variables.prod.js'), 'production'), prod, customizer);
-    break;
-
-  default:
-    console.log('using dev config');
-    config = _.mergeWith({}, common(require('./variables.dev.js'), 'development'), dev, customizer);
-    break;
-}
-
 module.exports = function (env) {
-  return config;
+  switch (process.env.npm_lifecycle_event) {
+    case 'build:prod':
+      return _.mergeWith({}, common(require('./variables.prod.js'), 'production'), prod, customizer);
+
+    default:
+      console.log('using dev config');
+      return _.mergeWith({}, common(require('./variables.dev.js'), 'development'), dev, customizer);
+  }
 };

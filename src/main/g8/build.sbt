@@ -30,16 +30,54 @@ lazy val shared =
     )
     .settings(sharedSettings)
 
+val TEST_FILE = s"./sjs.test.js"
+
+val testDev  = Def.taskKey[Unit]("test in dev mode")
+val testProd = Def.taskKey[Unit]("test in prod mode")
+
+def runJest(): Unit = {
+  import sys.process._
+  val jestResult = """yarn test --colors""".!
+  if (jestResult != 0) throw new IllegalStateException("Jest Suite failed")
+}
+
+lazy val jest =
+  (crossProject(JSPlatform).crossType(CrossType.Pure) in file(
+    "modules/jest"
+  )).disablePlugins(RevolverPlugin)
+    .jsSettings(
+      scalaJSLinkerConfig ~= { _.withModuleKind(ModuleKind.CommonJSModule) },
+    )
+    .settings(sharedSettings)
+    .dependsOn(shared)
+
 lazy val frontend =
   (crossProject(JSPlatform).crossType(CrossType.Pure) in file(
     "modules/frontend"
   )).disablePlugins(RevolverPlugin)
     .jsSettings(
+      Test / jsEnv := new org.scalajs.jsenv.jsdomnodejs.JSDOMNodeJSEnv(),
+      Test / scalaJSUseTestModuleInitializer := false,
+      Test / scalaJSUseMainModuleInitializer := true,
+      Test / fastOptJS / artifactPath :=
+        ((crossTarget in fastOptJS).value /
+          ((moduleName in fastOptJS).value + "-fastopt.test.js")),
+      Test / fullOptJS / artifactPath :=
+        ((crossTarget in fullOptJS).value /
+          ((moduleName in fullOptJS).value + "-opt.test.js")),
+      testDev := {
+        (fastOptJS in Test).value
+        runJest()
+      },
+      testProd := {
+        (fullOptJS in Test).value
+        runJest()
+      },
       scalaJSLinkerConfig ~= { _.withModuleKind(ModuleKind.CommonJSModule) },
       libraryDependencies ++= Settings.frontendDependencies.value
     )
     .settings(sharedSettings)
-    .dependsOn(shared)
+    .dependsOn(shared, jest % Test)
 
 lazy val backend =
   (project in file("modules/backend"))
