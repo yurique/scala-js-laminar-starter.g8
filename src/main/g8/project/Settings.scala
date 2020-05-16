@@ -4,19 +4,19 @@ import sbt._
 object Settings {
 
   object versions {
-    val scala = "2.13.1"
+    val scala = "2.13.2"
     val laminar = "0.9.0"
     val `url-dsl` = "0.2.0"
     val waypoint = "0.1.0"
-    val akka = "2.6.4"
-    val `akka-http` = "10.1.11"
-    val `akka-http-json` = "1.31.0"
+    val akka = "2.6.5"
+    val `akka-http` = "10.1.12"
+    val `akka-http-json` = "1.32.0"
     val circe = "0.13.0"
     val `circe-derivation` = "0.13.0-M4"
     val `typesafe-config` = "1.4.0"
     val pureconfig = "0.12.3"
     val scribe = "2.7.12"
-    val newtype = "0.4.3"
+    val newtype = "0.4.4"
     val uTest = "0.6.6"
     val `dom-test-utils` = "0.12.0"
   }

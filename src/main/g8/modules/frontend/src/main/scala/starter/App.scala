@@ -1,4 +1,4 @@
-package starter.app
+package starter
 
 import com.raquo.laminar.api.L._
 import starter.todomvc.TodoMvcApp
@@ -19,10 +19,10 @@ object App {
     val config = FrontEndConfig.config
     dom.console.log("publishable key from config", config.publishableKey)
     val container = document.getElementById("app-container") // This div, its id and contents are defined in index-fastopt.html/index-fullopt.html files
-    var ignoredRoot = 
-    render(
-      container,
-      PageChrome(Routes.view)
-    )
+    var ignoredRoot =
+      render(
+        container,
+        PageChrome(Routes.view)
+      )
   }
 }

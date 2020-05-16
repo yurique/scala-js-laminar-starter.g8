@@ -5,7 +5,6 @@ import starter.http.Requests
 import io.circe.parser._
 import starter.data.PostRepr
 import starter.components.PostView
-import org.scalajs.dom.ext.AjaxException
 import starter.http.HttpError
 import scala.concurrent.ExecutionContext.Implicits.global
 import org.scalajs.dom
@@ -22,7 +21,7 @@ object AllPostsPageRender {
       if (xhr.status != 200) {
         Left(HttpError(s"${xhr.status} ${xhr.statusText} ${xhr.response}"))
       } else {
-        decode[List[PostRepr]](xhr.responseText) 
+        decode[List[PostRepr]](xhr.responseText)
       }
     ).map {
       case Right(posts) => renderPosts(posts)

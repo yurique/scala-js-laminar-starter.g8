@@ -56,9 +56,9 @@ lazy val frontend =
     "modules/frontend"
   )).disablePlugins(RevolverPlugin)
     .jsSettings(
-      Test / jsEnv := new org.scalajs.jsenv.jsdomnodejs.JSDOMNodeJSEnv(),
-      Test / scalaJSUseTestModuleInitializer := false,
-      Test / scalaJSUseMainModuleInitializer := true,
+//      Test / jsEnv := new org.scalajs.jsenv.jsdomnodejs.JSDOMNodeJSEnv(),
+//      Test / scalaJSUseTestModuleInitializer := false,
+//      Test / scalaJSUseMainModuleInitializer := true,
       Test / fastOptJS / artifactPath :=
         ((crossTarget in fastOptJS).value /
           ((moduleName in fastOptJS).value + "-fastopt.test.js")),

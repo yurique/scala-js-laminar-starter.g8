@@ -3,11 +3,11 @@ package starter.components
 import com.raquo.laminar.api.L._
 import starter.data.PostRepr
 import starter.util._
-import starter.pages.`package`.PostPage
+import starter.pages.PostPage
 
 object PostView {
 
-  def apply(post: PostRepr): HtmlElement = 
+  def apply(post: PostRepr): HtmlElement =
     div(
       div(
         cls := "px-4 text-blue-500 p-2",

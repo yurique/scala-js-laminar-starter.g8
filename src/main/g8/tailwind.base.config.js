@@ -7,7 +7,5 @@ module.exports = {
         ]
       },
     }
-  },
-  corePlugins: {},
-  plugins: [],
+  }
 }

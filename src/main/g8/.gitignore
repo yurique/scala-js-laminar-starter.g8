@@ -6,3 +6,5 @@ target/
 .js/
 .jvm/
 .idea/
+/.scala-js-sources/
+/yarn-error.log
