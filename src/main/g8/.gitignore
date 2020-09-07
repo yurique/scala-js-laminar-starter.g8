@@ -4,6 +4,7 @@ project/project/
 target/
 .idea/
 .bloop/
+.vscode/
 .js/
 .jvm/
 .idea/
