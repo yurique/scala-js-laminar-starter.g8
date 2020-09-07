@@ -36,7 +36,7 @@ sbt> backend/reStart
 
 ## Open 
 
-Open http://localhost:30090/ in the browser.
+Open http://localhost:30190/ in the browser.
 
 # Developing
 

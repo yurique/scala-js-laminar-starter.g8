@@ -18,7 +18,7 @@ private[scalajsjest] object JestMacro {
           if (s.isPackage) allTestClasses(s.fullName)
           else if (s.isClass && !s.isAbstract) {
 
-            if(s.asClass.toType <:< typeOf[JestSuite]) {
+            if (s.asClass.toType <:< typeOf[JestSuite]) {
               result :+=
                 q"""
                    val returnFromDescribe = scalajsjest.JestGlobal.describe(${s.asClass.fullName.toString} ,() => {
@@ -26,7 +26,7 @@ private[scalajsjest] object JestMacro {
                    ()
                  })
               """
-            } else if(s.asClass.toType <:< typeOf[JestSuiteOnly]) {
+            } else if (s.asClass.toType <:< typeOf[JestSuiteOnly]) {
               result :+=
                 q"""
                    scalajsjest.JestGlobal.describe.only(${s.asClass.fullName.toString} ,() => {
@@ -34,7 +34,7 @@ private[scalajsjest] object JestMacro {
                    ()
                  })
               """
-            } else if(s.asClass.toType <:< typeOf[JestSuiteSkip]) {
+            } else if (s.asClass.toType <:< typeOf[JestSuiteSkip]) {
               result :+=
                 q"""
                    scalajsjest.JestGlobal.describe.skip(${s.asClass.fullName.toString} ,() => {

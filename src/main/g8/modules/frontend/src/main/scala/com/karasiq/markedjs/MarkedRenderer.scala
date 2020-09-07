@@ -40,7 +40,27 @@ class MarkedRenderer extends js.Object {
 }
 
 object MarkedRenderer {
-  def apply(code: UndefOr[(String, String) => String] = js.undefined, blockquote: UndefOr[String => String] = js.undefined, html: UndefOr[String => String] = js.undefined, heading: UndefOr[(String, Int) => String] = js.undefined, hr: UndefOr[() => String] = js.undefined, list: UndefOr[(String, Boolean) => String] = js.undefined, listitem: UndefOr[String => String] = js.undefined, paragraph: UndefOr[String => String] = js.undefined, table: UndefOr[(String, String) => String] = js.undefined, tablerow: UndefOr[String => String] = js.undefined, tablecell: UndefOr[(String, js.Object) => String] = js.undefined, strong: UndefOr[String => String] = js.undefined, em: UndefOr[String => String] = js.undefined, codespan: UndefOr[String => String] = js.undefined, br: UndefOr[() => String] = js.undefined, del: UndefOr[String => String] = js.undefined, link: UndefOr[(String, String, String) => String] = js.undefined, image: UndefOr[(String, String, String) => String] = js.undefined): MarkedRenderer = {
+
+  def apply(
+    code: UndefOr[(String, String) => String] = js.undefined,
+    blockquote: UndefOr[String => String] = js.undefined,
+    html: UndefOr[String => String] = js.undefined,
+    heading: UndefOr[(String, Int) => String] = js.undefined,
+    hr: UndefOr[() => String] = js.undefined,
+    list: UndefOr[(String, Boolean) => String] = js.undefined,
+    listitem: UndefOr[String => String] = js.undefined,
+    paragraph: UndefOr[String => String] = js.undefined,
+    table: UndefOr[(String, String) => String] = js.undefined,
+    tablerow: UndefOr[String => String] = js.undefined,
+    tablecell: UndefOr[(String, js.Object) => String] = js.undefined,
+    strong: UndefOr[String => String] = js.undefined,
+    em: UndefOr[String => String] = js.undefined,
+    codespan: UndefOr[String => String] = js.undefined,
+    br: UndefOr[() => String] = js.undefined,
+    del: UndefOr[String => String] = js.undefined,
+    link: UndefOr[(String, String, String) => String] = js.undefined,
+    image: UndefOr[(String, String, String) => String] = js.undefined
+  ): MarkedRenderer = {
     val renderer = new MarkedRenderer().asInstanceOf[js.Dynamic]
     code.foreach(renderer.code = _)
     blockquote.foreach(renderer.blockquote = _)

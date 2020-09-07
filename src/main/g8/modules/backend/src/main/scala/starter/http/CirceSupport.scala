@@ -1,6 +1,6 @@
 package starter.http
 
-import de.heikoseeberger.akkahttpcirce.{BaseCirceSupport, ErrorAccumulatingUnmarshaller}
+import de.heikoseeberger.akkahttpcirce.{ BaseCirceSupport, ErrorAccumulatingUnmarshaller }
 import io.circe.Printer
 
 object DropNullKeysPrinter {
@@ -17,4 +17,4 @@ trait DropNullKeysPrinter { this: BaseCirceSupport =>
 
 trait AkkaHttpCirceSupport extends BaseCirceSupport with DropNullKeysPrinter with ErrorAccumulatingUnmarshaller
 
-trait CirceSupportWithCodecs extends AkkaHttpCirceSupport 
+trait CirceSupportWithCodecs extends AkkaHttpCirceSupport

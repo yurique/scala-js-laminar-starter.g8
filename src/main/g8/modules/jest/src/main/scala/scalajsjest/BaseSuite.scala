@@ -5,20 +5,21 @@ import scala.scalajs.concurrent.JSExecutionContext.Implicits.queue
 import scala.scalajs.js.JSConverters._
 
 private[scalajsjest] trait BaseSuite {
-  def test(name: String)(block:  => Unit): Unit =
-    JestGlobal.test(name,() => block)
 
-  def testAsync(name: String)(block:  => Any): Unit =
-    JestGlobal.test(name,() => block)
+  def test(name: String)(block: => Unit): Unit =
+    JestGlobal.test(name, () => block)
 
-  def testOnly(name: String)(block:  => Unit): Unit =
-    JestGlobal.test.only(name,() => block)
+  def testAsync(name: String)(block: => Any): Unit =
+    JestGlobal.test(name, () => block)
 
-  def testSkip(name: String)(block:  => Unit): Unit =
-    JestGlobal.test.skip(name,() => block)
+  def testOnly(name: String)(block: => Unit): Unit =
+    JestGlobal.test.only(name, () => block)
 
-  def testOnlyAsync(name: String)(block:  => Any): Unit =
-    JestGlobal.test.only(name,() => block)
+  def testSkip(name: String)(block: => Unit): Unit =
+    JestGlobal.test.skip(name, () => block)
+
+  def testOnlyAsync(name: String)(block: => Any): Unit =
+    JestGlobal.test.only(name, () => block)
 
   def expect[T](value: T) = JestGlobal.expect(value)
 

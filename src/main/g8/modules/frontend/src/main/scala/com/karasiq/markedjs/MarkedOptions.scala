@@ -1,9 +1,10 @@
 package com.karasiq.markedjs
 
 import scala.scalajs.js
-import scala.scalajs.js.{Any, UndefOr}
+import scala.scalajs.js.{ Any, UndefOr }
 
 class MarkedOptions extends js.Object {
+
   /**
     * A function to highlight code blocks
     * @see [[https://github.com/chjj/marked#highlight]]
@@ -52,6 +53,7 @@ class MarkedOptions extends js.Object {
 }
 
 object MarkedOptions {
+
   /**
     * @param highlight A function to highlight code blocks
     * @param renderer An object containing functions to render tokens to HTML.
@@ -63,7 +65,17 @@ object MarkedOptions {
     * @param smartLists Use smarter list behavior than the original markdown. May eventually be default with the old behavior moved into `pedantic`.
     * @param smartypants Use "smart" typograhic punctuation for things like quotes and dashes.
     */
-  def apply(highlight: UndefOr[(String, UndefOr[String], js.Function) => String] = js.undefined, renderer: MarkedRenderer = new MarkedRenderer(), gfm: Boolean = true, tables: Boolean = true, breaks: Boolean = false, pedantic: Boolean = false, sanitize: Boolean = false, smartLists: Boolean = true, smartypants: Boolean = false): MarkedOptions = {
+  def apply(
+    highlight: UndefOr[(String, UndefOr[String], js.Function) => String] = js.undefined,
+    renderer: MarkedRenderer = new MarkedRenderer(),
+    gfm: Boolean = true,
+    tables: Boolean = true,
+    breaks: Boolean = false,
+    pedantic: Boolean = false,
+    sanitize: Boolean = false,
+    smartLists: Boolean = true,
+    smartypants: Boolean = false
+  ): MarkedOptions = {
     val _highlight = highlight
     val _renderer = renderer
     val _gfm = gfm
@@ -86,22 +98,3 @@ object MarkedOptions {
     }
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -8,4 +8,3 @@ final case class HttpConfiguration(
 final case class Configuration(
   http: HttpConfiguration
 )
-

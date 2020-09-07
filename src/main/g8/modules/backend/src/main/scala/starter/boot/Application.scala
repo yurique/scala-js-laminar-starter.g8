@@ -23,16 +23,20 @@ class Application() {
     import system.dispatcher
     implicit val timeout: Timeout = 10.seconds
 
-    val bindingFuture = Http().bindAndHandle(
-      root.route,
-      httpConfig.interface,
-      httpConfig.port
-    )
+    val bindingFuture =
+      Http()
+        .newServerAt(
+          httpConfig.interface,
+          httpConfig.port
+        )
+        .bind(root.route)
 
     bindingFuture.failed.foreach { ex =>
       scribe.error(s"bind failed: ${httpConfig}", ex)
     }
-    bindingFuture.foreach { binding => scribe.info(s"bound: $binding") }
+    bindingFuture.foreach { binding =>
+      scribe.info(s"bound: $binding")
+    }
 
   }
 

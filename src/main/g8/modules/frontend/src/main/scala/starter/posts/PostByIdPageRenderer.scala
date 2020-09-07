@@ -22,12 +22,14 @@ object PostByIdPageRenderer {
               dom.console.log(xhr)
               xhr
             }
-          ).map(xhr =>
-            if (xhr.status != 200) {
-              Left(HttpError(s"${xhr.status} ${xhr.statusText} ${xhr.response}"))
-            } else {
-              decode[PostRepr](xhr.responseText)
-          }).map {
+          ).map(
+            xhr =>
+              if (xhr.status != 200) {
+                Left(HttpError(s"${xhr.status} ${xhr.statusText} ${xhr.response}"))
+              } else {
+                decode[PostRepr](xhr.responseText)
+              }
+          ).map {
             case Right(posts) => renderPosts(posts)
             case Left(error) =>
               div(

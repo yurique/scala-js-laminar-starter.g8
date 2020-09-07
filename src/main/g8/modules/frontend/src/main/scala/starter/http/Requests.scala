@@ -11,7 +11,6 @@ import scala.concurrent.Future
 import scala.concurrent.Promise
 import org.scalajs.dom.ext.AjaxException
 
-
 object Requests {
 
   private[this] val jsonHeaders = Map(
@@ -27,8 +26,8 @@ object Requests {
     withCredentials: Boolean,
     responseType: String,
     progress: UndefOr[ProgressEvent => Unit]
-  ): Future[XMLHttpRequest] = {    
-    val req     = new dom.XMLHttpRequest()
+  ): Future[XMLHttpRequest] = {
+    val req = new dom.XMLHttpRequest()
     val promise = Promise[dom.XMLHttpRequest]()
 
     req.onreadystatechange = { e: dom.Event =>

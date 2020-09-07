@@ -10,7 +10,7 @@
 <body>
   <div id="app-container"></div>
   <script type="text/javascript">
-    var ___appConfig = <%= JSON.stringify(htmlWebpackPlugin.options.config) %>;
+    var ___appConfig = JSON.parse(<%= JSON.stringify(JSON.stringify(htmlWebpackPlugin.options.config)) %>);
     window.app.App.start();
   </script>
 </body>

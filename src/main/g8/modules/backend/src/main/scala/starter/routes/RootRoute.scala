@@ -24,7 +24,7 @@ class RootRoute extends RoutesBase {
               case None    => complete(StatusCodes.InternalServerError)
             }
           },
-          path(IntNumber) { id => 
+          path(IntNumber) { id =>
             TestData.posts.find(_.id == id) match {
               case Some(p) => complete(p)
               case None    => complete(StatusCodes.NotFound)
@@ -57,8 +57,7 @@ object TestData {
     ),
     PostRepr(
       id = 3,
-      text =
-        """
+      text = """
         |The greatest glory in living lies not in never falling, but in rising every time we fall." 
         """.stripMargin,
       author = "Nelson Mandela"

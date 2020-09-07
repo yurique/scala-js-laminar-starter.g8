@@ -21,13 +21,13 @@ package object pages {
   }
   case class ErrorPage(error: String) extends Page {
     def path: String = "/"
-  }  
+  }
   case object NotFoundPage extends Page {
     def path: String = "/"
   }
 
   object Page {
-   
+
     implicit val codePage = deriveCodec[Page]
 
   }

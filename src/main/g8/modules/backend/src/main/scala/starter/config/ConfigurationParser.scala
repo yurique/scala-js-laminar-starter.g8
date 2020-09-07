@@ -11,7 +11,10 @@ object ConfigurationParser {
       .at(path)
       .load[T]
       .fold(
-        f => throw new RuntimeException(s"Failed to parse configuration: ${f.toList.map(e => s"${e.description} (${e.location.fold("")(_.toString)})").mkString("[\n", ",\n", "\n]")}"),
+        f =>
+          throw new RuntimeException(
+            s"Failed to parse configuration: ${f.toList.map(e => s"${e.description} (${e.location.fold("")(_.toString)})").mkString("[\n", ",\n", "\n]")}"
+          ),
         identity
       )
   }

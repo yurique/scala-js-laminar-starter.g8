@@ -16,6 +16,7 @@ object Routes {
   val todoRoute = Route.static(TodoMvcPage, root / "todo" / endOfSegments)
   val allPostsRoute = Route.static(AllPostsPage, root / "posts" / endOfSegments)
   val randomPostRoute = Route.static(RandomPostPage, root / "posts" / "random" / endOfSegments)
+
   val postByIdRoute = Route[PostPage, Int](
     encode = post => post.id,
     decode = arg => PostPage(id = arg),
@@ -28,14 +29,15 @@ object Routes {
     origin = dom.document.location.origin.get,
     routes = List(todoRoute, allPostsRoute, randomPostRoute, postByIdRoute, notFoundRoute),
     owner = unsafeWindowOwner, // this router will live as long as the window
+    $popStateEvent = windowEvents.onPopState,
     getPageTitle = _.toString, // mock page title (displayed in the browser tab next to favicon)
     serializePage = page => page.asJson.noSpaces, // serialize page data for storage in History API log
     deserializePage = pageStr => decode[Page](pageStr).fold(e => ErrorPage(e.getMessage), identity) // deserialize the above
   )
 
-  val splitter = 
+  val splitter =
     SplitRender[Page, HtmlElement](router.$currentPage)
-      .collectSignal[ErrorPage] { $errorPage => 
+      .collectSignal[ErrorPage] { $errorPage =>
         div(
           div("An unpredicted error has just happened. We think this is truly unfortunate."),
           div(
@@ -43,7 +45,7 @@ object Routes {
           )
         )
       }
-      .collectSignal[PostPage] { $postPage => 
+      .collectSignal[PostPage] { $postPage =>
         PostByIdPageRenderer.render($postPage)
       }
       .collectStatic(TodoMvcPage) { TodoMvcApp.render }
@@ -60,5 +62,5 @@ object Routes {
   }
 
   val view = splitter.$view
-  
+
 }

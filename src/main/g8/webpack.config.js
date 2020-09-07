@@ -4,14 +4,16 @@ const _ = require('lodash');
 const ExtractCssChunks = require('extract-css-chunks-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-const {CleanWebpackPlugin} = require('clean-webpack-plugin');
+const {
+  CleanWebpackPlugin
+} = require('clean-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin')
 const CompressionPlugin = require('compression-webpack-plugin');
 
 const scalaOutputPath = path.resolve(__dirname, './modules/frontend/.js/target/scala-2.13');
 
 const devBackendPort = 30099;
-const devServerPort = 30090;
+const devServerPort = 30190;
 
 const devBackend = `http://127.0.0.1:${devBackendPort}`;
 
@@ -53,21 +55,19 @@ function common(variables, mode) {
       path.resolve(__dirname, './modules/frontend/src/static/stylesheets/main.css')
     ],
     module: {
-      rules: [
-        {
+      rules: [{
           test: /\.js$/,
-          use: [
-            {
-              loader: "scalajs-friendly-source-map-loader",
-              options: {
-                name: '[name].[contenthash:8].[ext]',
-                skipFileURLWarnings: true, // or false, default is true
-                bundleHttp: true, // or false, default is true,
-                cachePath: ".scala-js-sources", // cache dir name, exclude in .gitignore
-                noisyCache: false, // whether http cache changes are output
-                useCache: true, // false => remove any http cache processing
-              }
-            }],
+          use: [{
+            loader: "scalajs-friendly-source-map-loader",
+            options: {
+              name: '[name].[contenthash:8].[ext]',
+              skipFileURLWarnings: true, // or false, default is true
+              bundleHttp: true, // or false, default is true,
+              cachePath: ".scala-js-sources", // cache dir name, exclude in .gitignore
+              noisyCache: false, // whether http cache changes are output
+              useCache: true, // false => remove any http cache processing
+            }
+          }],
           enforce: "pre",
           include: [scalaOutputPath],
         },
@@ -81,11 +81,11 @@ function common(variables, mode) {
         {
           test: /\.css$/,
           use: [{
-            loader: ExtractCssChunks.loader,
-            options: {
-              filename: '[name].[contenthash:8].[ext]'
-            }
-          },
+              loader: ExtractCssChunks.loader,
+              options: {
+                filename: '[name].[contenthash:8].[ext]'
+              }
+            },
             {
               loader: 'css-loader'
             },
@@ -102,11 +102,11 @@ function common(variables, mode) {
         {
           test: /\.scss$/,
           use: [{
-            loader: ExtractCssChunks.loader,
-            options: {
-              filename: '[name].[contenthash:8].[ext]'
-            }
-          },
+              loader: ExtractCssChunks.loader,
+              options: {
+                filename: '[name].[contenthash:8].[ext]'
+              }
+            },
             {
               loader: 'css-loader'
             },
@@ -154,7 +154,7 @@ function common(variables, mode) {
     plugins: [
       new HtmlWebpackPlugin({
         filename: 'index.html',
-        template: './modules/frontend/src/static/html/index.html',
+        template: './modules/frontend/src/static/html/index.html.ejs',
         minify: false,
         inject: 'head',
         config: variables
@@ -164,23 +164,21 @@ function common(variables, mode) {
         filename: '[name].[hash].css',
         chunkFilename: '[id].css'
       }),
-      new CopyWebpackPlugin(
-        {
-          patterns: [
-            {
-              from: './modules/frontend/src/static/images',
-              to: 'images'
-            },
-            {
-              from: './modules/frontend/src/static/robots.txt',
-              to: '[name].[ext]'
-            },
-            {
-              from: './modules/frontend/src/static/data/*.json',
-              to: '[name].[ext]'
-            }
-          ]
-        })
+      new CopyWebpackPlugin({
+        patterns: [{
+            from: './modules/frontend/src/static/images',
+            to: 'images'
+          },
+          {
+            from: './modules/frontend/src/static/robots.txt',
+            to: '[name].[ext]'
+          },
+          {
+            from: './modules/frontend/src/static/data/*.json',
+            to: '[name].[ext]'
+          }
+        ]
+      })
     ]
   }
 }
@@ -242,11 +240,15 @@ module.exports = function (env) {
 
     case 'start:prod':
       console.log('production dev server');
-      return _.mergeWith({}, common(require('./variables.dev.js'), 'production'), prod, {devServer}, customizer);
+      return _.mergeWith({}, common(require('./variables.dev.js'), 'production'), prod, {
+        devServer
+      }, customizer);
     case 'start':
     case 'start:dev':
     default:
       console.log('development dev server');
-      return _.mergeWith({}, common(require('./variables.dev.js'), 'development'), dev, {devServer}, customizer);
+      return _.mergeWith({}, common(require('./variables.dev.js'), 'development'), dev, {
+        devServer
+      }, customizer);
   }
 }

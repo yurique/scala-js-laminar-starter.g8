@@ -5,7 +5,7 @@ import starter.pages._
 
 object PageChrome {
 
-  def apply($child: Signal[HtmlElement]): HtmlElement = 
+  def apply($child: Signal[HtmlElement]): HtmlElement =
     div(
       cls := "max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8",
       div(

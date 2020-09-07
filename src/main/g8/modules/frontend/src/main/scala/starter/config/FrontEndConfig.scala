@@ -13,7 +13,6 @@ final case class FrontEndConfig(
 
 object FrontEndConfig {
 
-
   @js.native
   @JSGlobal("window")
   private[this] object ConfigGlobalScope extends js.Object {

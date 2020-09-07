@@ -16,7 +16,6 @@ object TodoMvcApp {
 
   case class TodoItem(id: Int, text: String, completed: Boolean)
 
-
   sealed abstract class Filter(val name: String, val passes: TodoItem => Boolean)
 
   object ShowAll extends Filter("All", _ => true)
@@ -26,7 +25,6 @@ object TodoMvcApp {
   object ShowCompleted extends Filter("Completed", _.completed)
 
   val filters: List[Filter] = ShowAll :: ShowActive :: ShowCompleted :: Nil
-
 
   sealed trait Command
 
@@ -39,7 +37,6 @@ object TodoMvcApp {
   case class Delete(itemId: Int) extends Command
 
   case object DeleteCompleted extends Command
-
 
   // State
 
@@ -67,29 +64,28 @@ object TodoMvcApp {
       itemsVar.update(_.filterNot(_.completed))
   }
 
-
   // Rendering
 
   // This is what we expose to the public – a single div element: not a stream, not some virtual DOM representation.
   // You can get the real JS DOM element it manages using its .ref property – that reference does not change over time.
   def render: HtmlElement = {
     div(
-        div(
-          h1(
-            cls := "text-3xl font-bold leading-tight text-gray-900 font-condensed",
-            "TODOS"
-          ),
-          renderNewTodoInput,
+      div(
+        h1(
+          cls := "text-3xl font-bold leading-tight text-gray-900 font-condensed",
+          "TODOS"
         ),
-        div(
-          hideIfNoItems,
-          cls := "",
-          ul(
-            cls := "min-w-full ",
-            children <-- itemsVar.signal.combineWith(filterVar.signal).map2(_ filter _.passes).split(_.id)(renderTodoItem)
-          )
-        ),
-        renderStatusBar
+        renderNewTodoInput
+      ),
+      div(
+        hideIfNoItems,
+        cls := "",
+        ul(
+          cls := "min-w-full ",
+          children <-- itemsVar.signal.combineWith(filterVar.signal).map2(_ filter _.passes).split(_.id)(renderTodoItem)
+        )
+      ),
+      renderStatusBar
     )
   }
 
@@ -117,9 +113,12 @@ object TodoMvcApp {
     }
     li(
       cls := "px-6 py-3 border-b border-purple-200 bg-purple-50 flex items-center",
-      cls <-- $item.map(item => Map(
-        "line-through" -> item.completed
-      )),
+      cls <-- $item.map(
+        item =>
+          Map(
+            "line-through" -> item.completed
+          )
+      ),
       onDblClick.filter(_ => !isEditingVar.now()).mapTo(true) --> isEditingVar.writer,
       children <-- isEditingVar.signal.map[List[HtmlElement]] {
         case true =>
@@ -133,7 +132,7 @@ object TodoMvcApp {
             ),
             button(
               cls := "w-8 h-8 text-red-600 p-2 ml-4",
-              Icons.delete, 
+              Icons.delete,
               onClick.mapTo(Delete(itemId)) --> commandObserver
             )
           )
@@ -175,19 +174,20 @@ object TodoMvcApp {
         cls := "text-purple-800 tracking-wide",
         child <-- itemsVar.signal
           .map(_.count(!_.completed))
-          .map( count => 
-            div(
-              cls := "flex items-center",
+          .map(
+            count =>
               div(
-                cls := "font-bold text-xl",
-                s"${count}"
-              ),
-              div(
-                cls := "ml-2",
-                pluralize(count, "item left", "items left")
+                cls := "flex items-center",
+                div(
+                  cls := "font-bold text-xl",
+                  s"${count}"
+                ),
+                div(
+                  cls := "ml-2",
+                  pluralize(count, "item left", "items left")
+                )
               )
-            )
-          ),
+          )
       ),
       div(
         ul(
@@ -195,19 +195,21 @@ object TodoMvcApp {
           filters.map(filter => li(renderFilterButton(filter)))
         ),
         child.maybe <-- itemsVar.signal.map { items =>
-          if (items.exists(ShowCompleted.passes)) Some(
-            div(
-              cls := "mt-2",
-              button(
-                cls := "inline-flex items-center border border-transparent rounded-md focus:outline-none",
-                cls := "px-3 py-2 text-sm",
-                cls := "text-white bg-indigo-600 hover:bg-indigo-500 focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700",
-                cls := "cursor-pointer",
-                "Clear completed",
-                onClick.map(_ => DeleteCompleted) --> commandObserver
+          if (items.exists(ShowCompleted.passes))
+            Some(
+              div(
+                cls := "mt-2",
+                button(
+                  cls := "inline-flex items-center border border-transparent rounded-md focus:outline-none",
+                  cls := "px-3 py-2 text-sm",
+                  cls := "text-white bg-indigo-600 hover:bg-indigo-500 focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700",
+                  cls := "cursor-pointer",
+                  "Clear completed",
+                  onClick.map(_ => DeleteCompleted) --> commandObserver
+                )
               )
             )
-          ) else None
+          else None
         }
       )
     )
@@ -215,9 +217,12 @@ object TodoMvcApp {
   private def renderFilterButton(filter: Filter) =
     a(
       cls := "block py-2 flex-1 px-4 py-2 text-purple-800",
-      cls <-- filterVar.signal.map(selectedFilter => Map(
-        "underline" -> (selectedFilter == filter)
-      )),
+      cls <-- filterVar.signal.map(
+        selectedFilter =>
+          Map(
+            "underline" -> (selectedFilter == filter)
+          )
+      ),
       cls := "cursor-pointer",
       onClick.preventDefault.mapTo(filter) --> filterVar.writer,
       filter.name
@@ -226,7 +231,6 @@ object TodoMvcApp {
   // Every little thing in Laminar can be abstracted away
   private def hideIfNoItems: Mod[HtmlElement] =
     display <-- itemsVar.signal.map(items => if (items.nonEmpty) "" else "none")
-
 
   // Helpers
 

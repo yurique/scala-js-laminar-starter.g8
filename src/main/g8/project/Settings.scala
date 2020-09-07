@@ -4,13 +4,13 @@ import sbt._
 object Settings {
 
   object versions {
-    val scala = "2.13.2"
-    val laminar = "0.9.0"
+    val scala = "2.13.3"
+    val laminar = "0.10.2"
     val `url-dsl` = "0.2.0"
-    val waypoint = "0.1.0"
-    val akka = "2.6.5"
-    val `akka-http` = "10.1.12"
-    val `akka-http-json` = "1.32.0"
+    val waypoint = "0.2.0"
+    val akka = "2.6.8"
+    val `akka-http` = "10.2.0"
+    val `akka-http-json` = "1.34.0"
     val circe = "0.13.0"
     val `circe-derivation` = "0.13.0-M4"
     val `typesafe-config` = "1.4.0"
@@ -26,7 +26,7 @@ object Settings {
     "-unchecked",
     "-deprecation",
     "-feature",
-    "-Xlint:nullary-unit,inaccessible,nullary-override,infer-any,missing-interpolator,private-shadow,type-parameter-shadow,poly-implicit-overload,option-implicit,delayedinit-select,stars-align",
+    "-Xlint:nullary-unit,inaccessible,infer-any,missing-interpolator,private-shadow,type-parameter-shadow,poly-implicit-overload,option-implicit,delayedinit-select,stars-align",
     "-Xcheckinit",
     "-language:higherKinds",
     "-language:implicitConversions",

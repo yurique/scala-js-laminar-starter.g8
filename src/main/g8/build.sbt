@@ -11,6 +11,8 @@ scalaVersion in ThisBuild := Settings.versions.scala
 
 scalacOptions in ThisBuild ++= Settings.scalacOptions
 
+scalafmtOnCompile in ThisBuild := true
+
 val sharedSettings = Seq(
   addCompilerPlugin(
     "org.typelevel" %% "kind-projector" % "0.11.0" cross CrossVersion.full

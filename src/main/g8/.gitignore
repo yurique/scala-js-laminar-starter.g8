@@ -3,8 +3,10 @@ node_modules/
 project/project/
 target/
 .idea/
+.bloop/
 .js/
 .jvm/
 .idea/
 /.scala-js-sources/
 /yarn-error.log
+.DS_Store

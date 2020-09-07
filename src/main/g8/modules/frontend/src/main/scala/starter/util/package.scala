@@ -17,5 +17,4 @@ package object util {
 
   }
 
-  
 }
