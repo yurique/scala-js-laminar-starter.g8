@@ -67,3 +67,7 @@ npm run build:prod
 ```
 
 The front end assets will be generated into the `dist` folder.
+
+## Testing
+
+testing with jest is currently broken

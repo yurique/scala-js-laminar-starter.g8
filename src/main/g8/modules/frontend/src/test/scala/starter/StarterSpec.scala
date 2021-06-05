@@ -12,12 +12,12 @@ class StarterSpec extends JestSuite with JestMountOps with RuleImplicits {
 
   test("does something") {
     mount(div("Hello!"))
-    expectNode(div like ("Hello!"))
+    expectNode(div.like("Hello!"))
   }
 
   test("fails") {
     mount(span("Hello!"))
-    expectNode(span like ("Hello2!"))
+    expectNode(span.like("Hello2!"))
   }
 
 }

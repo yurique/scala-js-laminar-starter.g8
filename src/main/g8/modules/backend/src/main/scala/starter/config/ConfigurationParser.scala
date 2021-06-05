@@ -1,22 +1,21 @@
 package starter.config
 
-import pureconfig._
 import com.typesafe.config.Config
+import io.circe.config.syntax._
+import io.circe.generic.auto._
+import io.circe.config.parser
 
 object ConfigurationParser {
 
-  def parse[T](rawConfig: Config, path: String)(implicit reader: Derivation[ConfigReader[T]]): T = {
-    ConfigSource
-      .fromConfig(rawConfig)
-      .at(path)
-      .load[T]
-      .fold(
-        f =>
-          throw new RuntimeException(
-            s"Failed to parse configuration: ${f.toList.map(e => s"${e.description} (${e.location.fold("")(_.toString)})").mkString("[\n", ",\n", "\n]")}"
-          ),
+  def parse(rawConfig: Config): Configuration =
+    parser
+      .decodePath[Configuration](rawConfig, "starter").fold(
+        { e =>
+          println(s"failed to parse configuration")
+          e.printStackTrace()
+          throw e
+        },
         identity
       )
-  }
 
 }

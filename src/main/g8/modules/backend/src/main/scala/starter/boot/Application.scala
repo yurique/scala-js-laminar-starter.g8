@@ -1,27 +1,23 @@
 package starter.boot
 
 import akka.actor.ActorSystem
-import akka.util.Timeout
-import scala.concurrent.duration._
 import akka.http.scaladsl.Http
 import starter.config.ConfigurationParser
 import starter.config.Configuration
 import starter.routes.RootRoute
-import pureconfig.generic.auto._
 
 class Application() {
 
-  private implicit val system = ActorSystem("starter-http")
+  implicit private val system: ActorSystem = ActorSystem("starter-http")
   private val Configuration(
     httpConfig
   ) =
-    ConfigurationParser.parse[Configuration](system.settings.config, "starter")
+    ConfigurationParser.parse(system.settings.config)
 
   private val root = new RootRoute()
 
   def start(): Unit = {
     import system.dispatcher
-    implicit val timeout: Timeout = 10.seconds
 
     val bindingFuture =
       Http()

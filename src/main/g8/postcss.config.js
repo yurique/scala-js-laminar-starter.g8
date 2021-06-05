@@ -1,15 +1,16 @@
-module.exports = (ctx) => {
+module.exports = (api) => {
+  const tailwindcss = require('./tailwind.config')(api)
+  const plugins = {
+    'postcss-import': {},
+    'postcss-nested': {},
+    tailwindcss,
+    autoprefixer: {}
+  }
+  if (api.mode === 'production') {
+    plugins.cssnano = {}
+  }
+
   return {
-    plugins: [
-      require('postcss-import')({}),
-      ctx.webpack.mode === 'production' ?
-        require('tailwindcss')('./tailwind.prod.config.js') :
-        require('tailwindcss')('./tailwind.dev.config.js'),
-      require('postcss-nested')({}),
-      require('autoprefixer')({}),
-      ctx.webpack.mode === 'production' ?
-        require('cssnano')() :
-        false
-    ]
-  };
+    plugins
+  }
 }

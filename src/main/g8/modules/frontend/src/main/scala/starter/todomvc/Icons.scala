@@ -1,7 +1,8 @@
 package starter.todomvc
 
 import com.raquo.laminar.api.L.svg._
-import com.raquo.laminar.api.L.{ cls => _, svg => _ }
+import com.raquo.laminar.api.L.{cls => _}
+import com.raquo.laminar.api.L.{svg => _}
 import com.raquo.laminar.nodes.ReactiveSvgElement
 import org.scalajs.dom.svg.SVG
 

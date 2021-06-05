@@ -7,7 +7,7 @@ private[scalajsjest] object JestMacro {
 
   def runMacroImpl(c: whitebox.Context)(): c.Tree = {
     import c.universe._
-    val rootPackage = c.internal.enclosingOwner.fullName.split("\\.").head
+    val rootPackage          = c.internal.enclosingOwner.fullName.split("\\.").head
     var result: List[c.Tree] = List()
     def allTestClasses(name: String): Unit = {
       c.mirror

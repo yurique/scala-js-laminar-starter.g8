@@ -13,29 +13,30 @@ import starter.posts.PostByIdPageRenderer
 
 object Routes {
 
-  val todoRoute = Route.static(TodoMvcPage, root / "todo" / endOfSegments)
-  val allPostsRoute = Route.static(AllPostsPage, root / "posts" / endOfSegments)
-  val randomPostRoute = Route.static(RandomPostPage, root / "posts" / "random" / endOfSegments)
+  private val todoRoute       = Route.static(TodoMvcPage, root / "todo" / endOfSegments)
+  private val allPostsRoute   = Route.static(AllPostsPage, root / "posts" / endOfSegments)
+  private val randomPostRoute = Route.static(RandomPostPage, root / "posts" / "random" / endOfSegments)
 
-  val postByIdRoute = Route[PostPage, Int](
+  private val postByIdRoute = Route[PostPage, Int](
     encode = post => post.id,
     decode = arg => PostPage(id = arg),
     pattern = root / "posts" / segment[Int] / endOfSegments
   )
-  val notFoundRoute = Route.static(NotFoundPage, root)
+  private val notFoundRoute = Route.static(NotFoundPage, root)
 
   val router = new Router[Page](
-    initialUrl = dom.document.location.href, // must be a valid LoginPage or UserPage url
-    origin = dom.document.location.origin.get,
     routes = List(todoRoute, allPostsRoute, randomPostRoute, postByIdRoute, notFoundRoute),
-    owner = unsafeWindowOwner, // this router will live as long as the window
-    $popStateEvent = windowEvents.onPopState,
-    getPageTitle = _.toString, // mock page title (displayed in the browser tab next to favicon)
-    serializePage = page => page.asJson.noSpaces, // serialize page data for storage in History API log
+    getPageTitle = _.toString,                                                                      // mock page title (displayed in the browser tab next to favicon)
+    serializePage = page => page.asJson.noSpaces,                                                   // serialize page data for storage in History API log
     deserializePage = pageStr => decode[Page](pageStr).fold(e => ErrorPage(e.getMessage), identity) // deserialize the above
+  )(
+    initialUrl = dom.document.location.href, // must be a valid LoginPage or UserPage url
+    owner = unsafeWindowOwner,               // this router will live as long as the window
+    origin = dom.document.location.origin.get,
+    $popStateEvent = windowEvents.onPopState
   )
 
-  val splitter =
+  private val splitter =
     SplitRender[Page, HtmlElement](router.$currentPage)
       .collectSignal[ErrorPage] { $errorPage =>
         div(
@@ -61,6 +62,6 @@ object Routes {
     router.replaceState(page)
   }
 
-  val view = splitter.$view
+  val view: Signal[HtmlElement] = splitter.$view
 
 }

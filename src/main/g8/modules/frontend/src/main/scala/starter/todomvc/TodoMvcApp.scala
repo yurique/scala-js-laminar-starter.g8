@@ -82,7 +82,12 @@ object TodoMvcApp {
         cls := "",
         ul(
           cls := "min-w-full ",
-          children <-- itemsVar.signal.combineWith(filterVar.signal).map2(_ filter _.passes).split(_.id)(renderTodoItem)
+          children <-- itemsVar.signal
+            .combineWith(filterVar.signal)
+            .map { case (todos, filter) =>
+              todos.filter(filter.passes)
+            }
+            .split(_.id)(renderTodoItem)
         )
       ),
       renderStatusBar
@@ -113,11 +118,10 @@ object TodoMvcApp {
     }
     li(
       cls := "px-6 py-3 border-b border-purple-200 bg-purple-50 flex items-center",
-      cls <-- $item.map(
-        item =>
-          Map(
-            "line-through" -> item.completed
-          )
+      cls <-- $item.map(item =>
+        Map(
+          "line-through" -> item.completed
+        )
       ),
       onDblClick.filter(_ => !isEditingVar.now()).mapTo(true) --> isEditingVar.writer,
       children <-- isEditingVar.signal.map[List[HtmlElement]] {
@@ -174,19 +178,18 @@ object TodoMvcApp {
         cls := "text-purple-800 tracking-wide",
         child <-- itemsVar.signal
           .map(_.count(!_.completed))
-          .map(
-            count =>
+          .map(count =>
+            div(
+              cls := "flex items-center",
               div(
-                cls := "flex items-center",
-                div(
-                  cls := "font-bold text-xl",
-                  s"${count}"
-                ),
-                div(
-                  cls := "ml-2",
-                  pluralize(count, "item left", "items left")
-                )
+                cls := "font-bold text-xl",
+                s"${count}"
+              ),
+              div(
+                cls := "ml-2",
+                pluralize(count, "item left", "items left")
               )
+            )
           )
       ),
       div(
@@ -217,11 +220,10 @@ object TodoMvcApp {
   private def renderFilterButton(filter: Filter) =
     a(
       cls := "block py-2 flex-1 px-4 py-2 text-purple-800",
-      cls <-- filterVar.signal.map(
-        selectedFilter =>
-          Map(
-            "underline" -> (selectedFilter == filter)
-          )
+      cls <-- filterVar.signal.map(selectedFilter =>
+        Map(
+          "underline" -> (selectedFilter == filter)
+        )
       ),
       cls := "cursor-pointer",
       onClick.preventDefault.mapTo(filter) --> filterVar.writer,
