@@ -4,7 +4,7 @@ const scalaVersion = require('./scala-version')
 module.exports = (api) => {
   const scalajsMode = api.mode === 'production' ? 'opt' : 'fastopt'
   return {
-    // mode: 'jit',
+    mode: 'jit',
     purge: [
       `./modules/frontend/.js/target/scala-${scalaVersion}/frontend-${scalajsMode}/*.js`,
       './modules/frontend/src/main/static/**/*.html',
