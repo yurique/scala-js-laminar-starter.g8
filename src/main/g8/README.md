@@ -11,7 +11,7 @@ npm install
 Build the front-end:
 
 ```
-sbt frontendJS/fastOptJS
+sbt frontend/fastLinkJS
 ```
 
 Start the webpack dev server:
@@ -57,7 +57,7 @@ sbt> ~backend/reStart
 Build an optimized js for the front-end:
 
 ```
-sbt frontendJS/fullOptJS
+sbt frontend/fullLinkJS
 ```
 
 Run the npm:
