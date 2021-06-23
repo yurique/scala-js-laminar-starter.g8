@@ -113,25 +113,25 @@ const prod = {
     minimizer: [new TerserPlugin()],
   },
   plugins: [
+    new CleanWebpackPlugin(),
     new MiniCssExtractPlugin({
       filename: '[name].[contenthash].css',
     }),
-    new CleanWebpackPlugin(),
     new CompressionPlugin({
       test: /\.(js|css|html|svg|json|woff|woff2)$/,
       deleteOriginalAssets: false,
     }),
     new CompressionPlugin({
-      filename: '[path].br[query]',
-      algorithm: 'brotliCompress',
       test: /\.(js|css|html|svg|woff|woff2)$/,
+      filename: '[path][base].br',
+      algorithm: 'brotliCompress',
       compressionOptions: {
         // zlib’s `level` option matches Brotli’s `BROTLI_PARAM_QUALITY` option.
         level: 11,
       },
       minRatio: 0.8,
       deleteOriginalAssets: false,
-    }),
+    })
   ]
 };
 

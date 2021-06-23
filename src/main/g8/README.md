@@ -43,7 +43,7 @@ Open http://localhost:30190/ in the browser.
 To make sbt re-compile the front-end on code changes:
 
 ```
-sbt ~frontendJS/fastOptJS
+sbt ~frontend/fastLinkJS
 ```
 
 To re-compile and restart the back-end on code changes:
