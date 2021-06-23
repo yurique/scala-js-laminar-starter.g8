@@ -6,7 +6,7 @@ module.exports = (api) => {
   return {
     mode: 'jit',
     purge: [
-      `./modules/frontend/.js/target/scala-${scalaVersion}/frontend-${scalajsMode}/*.js`,
+      `./modules/frontend/target/scala-${scalaVersion}/frontend-${scalajsMode}/*.js`,
       './modules/frontend/src/main/static/**/*.html',
     ],
     theme: {
