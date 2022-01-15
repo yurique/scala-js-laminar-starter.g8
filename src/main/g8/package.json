@@ -2,7 +2,7 @@
   "private": true,
   "license": "MIT",
   "dependencies": {
-    "marked": "2.0.7"
+    "marked": "4.0.10"
   },
   "devDependencies": {
     "@tailwindcss/aspect-ratio": "^0.2.0",
