@@ -20,7 +20,7 @@
     "jsdom": "^16.6.0",
     "lodash": "^4.17.21",
     "mini-css-extract-plugin": "^1.6.0",
-    "node-sass": "^6.0.0",
+    "node-sass": "^7.0.0",
     "postcss": "^8.3.5",
     "postcss-import": "^14.0.2",
     "postcss-loader": "^6.1.0",
